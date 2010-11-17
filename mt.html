@@ -21,23 +21,24 @@
 	</script>
 	
 	<script type="text/javascript" charset="utf-8">
+var p={};
 		$(document).ready(function(){
-			initPlayer('containerA', $('#inputA').val())
+			initPlayer('A', $('#inputA').val())
 			
 			$('#setA').click(function() {
-				initPlayer('containerA', $('#inputA').val())
+				initPlayer('A', $('#inputA').val())
 			});
 		});
 		
 		
-		function initPlayer(container_id, video_id) {
+		function initPlayer(my_id, video_id) {
 			
-			$('#'+container_id).attr('class',"").html("").tubeplayer({
+			$('#container'+my_id).attr('class',"").html("").tubeplayer({
 				width: 400, // the width of the player
 				height: 300, // the height of the player
 				allowFullScreen: "false", // true by default, allow user to go full screen
 				initialVideo: video_id, // the video that is loaded into the player
-				playerID: "player-" + container_id, // the ID of the embedded youtube player
+				playerID: my_id, // the ID of the embedded youtube player
 				preferredQuality: "default",// preferred quality: default, small, medium, large, hd720
 				onPlay: function(id){}, // after the play method is called
 				onPause: function(){}, // after the pause method is called
@@ -46,14 +47,32 @@
 				onMute: function(){}, // after the player is muted
 				onUnMute: function(){} // after the player is unmuted
 			});
-
+			
+			
 		}
+		
+		
+		function onYouTubePlayerReady(my_id) {
+      		p[my_id] = $('#container'+my_id).tubeplayer('player');
+			p[my_id].addEventListener("onStateChange", "onytplayerStateChange");
+			setInterval("updateytplayerInfo('"+ my_id +"')", 100);
+
+    	}
+		function onytplayerStateChange(newState) {
+		   console.log("Player's new state: " + newState);
+		}
+		function updateytplayerInfo(playerId) {
+			$('#sec'+playerId).html(p[playerId].getCurrentTime());
+		}
+
+
 	</script>
 </head>
 <body>
 	<h1>Syncer</h1>
 	<p>Video id: <input id="inputA" type="text" size="30" value="8jeLGupVyrc"> <a href="#" id="setA">Set</a>	</p>
 	<div id="containerA">
-	</div>
+	</div><br>
+	Time: <span id="secA"></span>
 </body>
 </html>

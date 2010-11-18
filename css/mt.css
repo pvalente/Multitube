@@ -5,10 +5,19 @@ body {
 #esq {
 	float: left;
 	display: block;
-	width: 500px;
+	width: 450px;
 	margin-top: -16px;
 }
 
 #dir {
 
+}
+
+#controls {
+	clear: both;
+	width: 850px;
+	display: block;
+	background-color: #f0f0f0;
+	margin: 10px;
+	padding: 10px;
 }

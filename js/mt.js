@@ -15,6 +15,18 @@ $(document).ready(function(){
 		return false;
 	});
 	
+	$('#playAll').live('click', function() {
+		play('A');
+		play('B');
+		return false;
+	});
+	
+	$('#pauseAll').live('click', function() {
+		pause('A');
+		pause('B');
+		return false;
+	});
+	
 });
 
 
@@ -40,11 +52,21 @@ function initPlayer(my_id, video_id) {
 
 
 function onYouTubePlayerReady(my_id) {
-    		p[my_id] = $('#container'+my_id).tubeplayer('player');
+    p[my_id] = $('#container'+my_id).tubeplayer('player');
 	p[my_id].addEventListener("onStateChange", "onytplayerStateChange");
 	setInterval("updateytplayerInfo('"+ my_id +"')", 100);
 
   	}
+
+function play(my_id) {
+	$('#container'+my_id).tubeplayer('play');
+}
+
+function pause(my_id) {
+	$('#container'+my_id).tubeplayer('pause');
+}
+
+
 function onytplayerStateChange(newState) {
    console.log("Player's new state: " + newState);
 }

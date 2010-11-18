@@ -1,0 +1,14 @@
+body {
+	font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+#esq {
+	float: left;
+	display: block;
+	width: 500px;
+	margin-top: -16px;
+}
+
+#dir {
+
+}

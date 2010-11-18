@@ -27,6 +27,13 @@ $(document).ready(function(){
 		return false;
 	});
 	
+	$('#markA').click(function() {
+		$('#storeA').val($('#secA').val());
+	});
+	
+	$('#markB').click(function() {
+		$('#storeB').val($('#secB').val());
+	});
 });
 
 
@@ -71,6 +78,6 @@ function onytplayerStateChange(newState) {
    console.log("Player's new state: " + newState);
 }
 function updateytplayerInfo(playerId) {
-	$('#sec'+playerId).html(p[playerId].getCurrentTime());
+	$('#sec'+playerId).val(p[playerId].getCurrentTime());
 }
 

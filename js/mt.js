@@ -29,19 +29,31 @@ $(document).ready(function(){
 	
 	$('#markA').click(function() {
 		$('#storeA').val($('#secA').val());
+		
+		var preroll_point = $('#storeA').val()-$('#preroll').val();
+		if(preroll_point < 0) {
+			preroll_point = 0;
+		}
+		$('#preA').val(preroll_point);
 	});
 	
 	$('#markB').click(function() {
 		$('#storeB').val($('#secB').val());
+		
+		var preroll_point = $('#storeB').val()-$('#preroll').val();
+		if(preroll_point < 0) {
+			preroll_point = 0;
+		}
+		$('#preB').val(preroll_point);
 	});
 	
 	$('#seekA').click(function() {
-		seek('A', $('#storeA').val() );
+		seek('A', $('#preA').val() );
 		pause('A');
 	});
 	
 	$('#seekB').click(function() {
-		seek('B', $('#storeB').val() );
+		seek('B', $('#preB').val() );
 		pause('B');
 	});
 	

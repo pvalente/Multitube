@@ -7,7 +7,8 @@ OK - embed second video
 OK - see current time of the second
 OK - play both
 OK - mark selected time for each
-- seek to selected time
+OK - seek to selected time
+- preroll
 
 - compensate keyframe offset
 

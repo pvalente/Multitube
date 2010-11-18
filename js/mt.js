@@ -34,6 +34,17 @@ $(document).ready(function(){
 	$('#markB').click(function() {
 		$('#storeB').val($('#secB').val());
 	});
+	
+	$('#seekA').click(function() {
+		seek('A', $('#storeA').val() );
+		pause('A');
+	});
+	
+	$('#seekB').click(function() {
+		seek('B', $('#storeB').val() );
+		pause('B');
+	});
+	
 });
 
 
@@ -71,6 +82,10 @@ function play(my_id) {
 
 function pause(my_id) {
 	$('#container'+my_id).tubeplayer('pause');
+}
+
+function seek(my_id, time) {
+	$('#container'+my_id).tubeplayer('seek', time);
 }
 
 

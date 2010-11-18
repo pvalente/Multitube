@@ -35,6 +35,7 @@ $(document).ready(function(){
 			preroll_point = 0;
 		}
 		$('#preA').val(preroll_point);
+		
 	});
 	
 	$('#markB').click(function() {
@@ -50,12 +51,15 @@ $(document).ready(function(){
 	$('#seekA').click(function() {
 		seek('A', $('#preA').val() );
 		pause('A');
+		console.log("Diff A: "+ ($('#secA').val() - $('#preA').val() ) );
 	});
 	
 	$('#seekB').click(function() {
 		seek('B', $('#preB').val() );
 		pause('B');
+		console.log("Diff B: "+ ($('#secB').val() - $('#preB').val() ) );
 	});
+	
 	
 });
 

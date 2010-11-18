@@ -1,6 +1,6 @@
 
-Builder
-
+BACKLOG
+====================================================
 OK - Embed 1 video
 OK - see current time
 OK - embed second video
@@ -9,20 +9,22 @@ OK - play both
 OK - mark selected time for each
 OK - seek to selected time
 OK - preroll
-
-- compensate keyframe offset
+- show keyframe time diff
+- figure out execution order and js delay after the first video
+- compensate keyframe offset on play
+- make sure video is cued and ready to play
+- play page for more than 2 videos
+- play 3 videos in synced chain
 
 - store synced pair
 - list stored pairs
-
-- play 3 videos in synced chain
-
 - access synced pair and play it synced consistently
-
 - delete/edit stored pairs
 
 
 =====================================================
 
+BUGS
+- Javascript errors when setting a new video
 
-
+=====================================================

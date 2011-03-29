@@ -1,17 +1,17 @@
-= Multitube =
+== Multitube ==
 
 Sync videos
 
 
-== What is it? ==
+=== What is it? ===
 
 A website for people to create synced pairs of Youtube videos and play them.
 
-== Why? ==
+=== Why? ===
 
 Have you seen the insane amount of cameras recording live events from different angles? Nothing is being done with these videos.
 
-== How will it work? ==
+=== How will it work? ===
 
 You sync videos in pairs. 
 
@@ -21,12 +21,12 @@ Then you place them in the Builder. There you can mark a common point in both vi
 
 After that, Multitube should figure out a way to play them perfectly in sync.
 
-== Does it work yet? ==
+=== Does it work yet? ===
 
 Check the project backlog in the  `todo` file.
 
 
-== Can I use it to sync some videos? == 
+=== Can I use it to sync some videos? === 
 
 Knock yourself out. Be warned that it is in an *extremely alpha* stage, it is unstable and will probably not play stuff in sync unless you click `seek all` three or more times.
 

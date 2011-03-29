@@ -5,43 +5,49 @@
 <head>
 	<!-- 
 	Helter skelter:
-		8jeLGupVyrc
+		8jeLGupVyrc 5.581
+		vUWO2Lbg4zU 11.572
+		
 		k150-h7EawI
-		vUWO2Lbg4zU
+		
+	Bon Jovi - Livin'On a Prayer
+		8XX76txG0l8
+		VwFfB9BVARQ
 	-->
 	
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>mt</title>
 	<meta name="author" content="Pedro Valente">
 	<!-- Date: 2010-11-15 -->
-	<script type="text/javascript" charset="utf-8" src="js/jquery-1.4.2.min.js">
-	</script>
-	<script type="text/javascript" charset="utf-8" src="js/swfobject.js">
-	</script>
-	<script type="text/javascript" charset="utf-8" src="js/jQuery.tubeplayer.min.js">
-	</script>
-	
-	<script type="text/javascript" charset="utf-8" src="js/mt.js">
-	</script>
+	<script type="text/javascript" charset="utf-8" src="js/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/swfobject.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/jQuery.tubeplayer.0.9.4.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/jquery.url.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/mt.js"></script>
 	<link rel="stylesheet" href="css/mt.css" type="text/css" media="screen" charset="utf-8">
 </head>
+
 <body>
-	<h1>Syncer</h1>
+	<h1>Sync builder</h1>
 <div id="esq">
-	<p>Video id: <input id="inputA" type="text" size="30" value="8jeLGupVyrc"> <a href="#" id="setA">Set</a>	</p>
+	<p>Video id: <input id="inputA" type="text" size="30" value="8XX76txG0l8"> <a href="#" id="setA">Set</a>	</p>
 	<div id="containerA">
 	</div><br>
-	Time: <input id="secA" type="text" size="5"></input> <a href="#" id="markA">mark >></a> <input id="storeA" type="text" size="5" value="0"></input> <a href="#" id="seekA">seek to ></a><input id="preA" type="text" size="5" value="0"></input>
+	Time: <input id="secA" type="text" size="5"></input> <a href="#" id="markA">mark >></a> <input id="storeA" type="text" size="5" value="0"></input> <a href="#" id="seekA">seek to ></a><input id="preA" type="text" size="5" value="57.797"></input>
 </div>
 <div id="dir">
-	<p>Video id: <input id="inputB" type="text" size="30" value="vUWO2Lbg4zU"> <a href="#" id="setB">Set</a>	</p>
+	<p>Video id: <input id="inputB" type="text" size="30" value="VwFfB9BVARQ"> <a href="#" id="setB">Set</a>	</p>
 	<div id="containerB">
 	</div><br>
-	Time: <input id="secB" type="text" size="5"></input> <a href="#" id="markB">mark >></a> <input id="storeB" type="text" size="5" value="0"></input> <a href="#" id="seekB">seek to ></a><input id="preB" type="text" size="5" value="0"></input>
+	Time: <input id="secB" type="text" size="5"></input> <a href="#" id="markB">mark >></a> <input id="storeB" type="text" size="5" value="0"></input> <a href="#" id="seekB">seek to ></a><input id="preB" type="text" size="5" value="14.1960"></input>
 </div>
 <div id="controls">
-	<a href="#" id="playAll">Play all</a> - <a href="#" id="pauseAll">Pause all</a> - Preroll: <input id="preroll" type="text" size="5" value="3"></input> 
+	<a href="#" id="playAll">Play all</a> 
+	- <a href="#" id="pauseAll">Pause all</a>
+ 	- Preroll: <input id="preroll" type="text" size="5" value="0"></input>
+	<br><a href="#" id="seekAll">Seek all</a>
+	- <a href="#" id="playAllCorrected">Play all corrected</a> [Delay A:<input id="delayA" type="text" size="5" value="0"></input>  B:<input id="delayB" type="text" size="5" value="0"></input> ] 
 </div>
-	
+<a href="#" id="generateURL">Generate URL</a> <input id="syncURL" type="text" size="30" value="">
 </body>
 </html>

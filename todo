@@ -9,9 +9,11 @@ OK - play both
 OK - mark selected time for each
 OK - seek to selected time
 OK - preroll
-- show keyframe time diff
-- figure out execution order and js delay after the first video
-- compensate keyframe offset on play
+OK - show keyframe time diff
+OK - figure out execution order and js delay after the first video
+OK - compensate keyframe offset on play
+OK - accept URL parameters to populate fields
+OK - generate URL
 - make sure video is cued and ready to play
 - play page for more than 2 videos
 - play 3 videos in synced chain
@@ -25,6 +27,6 @@ OK - preroll
 =====================================================
 
 BUGS
-- Javascript errors when setting a new video
+WORKSFORME - Javascript errors when setting a new video
 
 =====================================================

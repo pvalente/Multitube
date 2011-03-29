@@ -2,11 +2,15 @@ body {
 	font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
+h1 {
+	margin: 0px;
+}
+
 #esq {
 	float: left;
 	display: block;
-	width: 450px;
-	margin-top: -16px;
+	width: 600px;
+	/*margin-top: -26px;*/
 }
 
 #dir {
@@ -15,7 +19,7 @@ body {
 
 #controls {
 	clear: both;
-	width: 850px;
+	width: 960px;
 	display: block;
 	background-color: #f0f0f0;
 	margin: 10px;

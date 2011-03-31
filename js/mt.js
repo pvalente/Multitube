@@ -102,6 +102,7 @@ $(document).ready(function(){
 			updateDelay('A');
 			//console.log("Direto: "+ p['A'].getCurrentTime() +" - Value: "+ $('#secA').val() );
 			//$('#delayA').val( Math.round( ($('#secA').val() - $('#preA').val() ) * 1000 ) );
+			return false;
 		});
 	
 		$('#seekB').click(function() {
@@ -111,6 +112,7 @@ $(document).ready(function(){
 			//setTimeout('updateDelay("B");', 1000 );
 			//console.log("Diff B: "+ ($('#secB').val() - $('#preB').val() ) );
 			//$('#delayB').val( Math.round( ($('#secB').val() - $('#preB').val() ) * 1000 )  );
+			return false;
 		});
 		
         populateFromURL();
@@ -138,17 +140,15 @@ function initPlayer(my_id, video_id) {
 		preferredQuality: "large",// preferred quality: default, small, medium, large, hd720
 		onPlay: function(id){}, // after the play method is called
 		onPause: function(){ 
-		            console.log("Paused "+ my_id) 
+		            //console.log("Will pause "+ my_id) 
 		        }, // after the pause method is called
 		onStop: function(){}, // after the player is stopped
 		onSeek: function(time){
-		            console.log("Seeked "+ my_id + " to "+ time); 
+		            //console.log("Will seek "+ my_id + " to "+ time); 
 		        }, // after the video has been seeked to a defined point
 		onMute: function(){}, // after the player is muted
 		onUnMute: function(){} // after the player is unmuted
 	});
-	
-	
 }
 
 
@@ -156,8 +156,29 @@ function onYouTubePlayerReady(my_id) {
     p[my_id] = $('#container'+my_id).tubeplayer('player');
 	p[my_id].addEventListener("onStateChange", "onytplayerStateChange");
 	setInterval("updateytplayerInfo('"+ my_id +"')", 100);
-    
-  }
+	prepareVideo(my_id);
+}
+
+
+function prepareVideo(my_id) {
+    console.log('Preparing video '+ $('#pre' + my_id).val());
+    var time = $('#pre' + my_id).val();
+    $.when( $('#container'+my_id)
+        .tubeplayer('seek', time)
+        .tubeplayer('pause') ).then(function(){
+            
+            $.when( $('#container'+my_id)
+                .tubeplayer('play') ).then(function(){
+                    $('#container'+my_id)
+                .tubeplayer('pause')
+            });
+        });
+}
+
+
+
+
+
 
 function play(my_id) {
 	$('#container'+my_id).tubeplayer('play');
@@ -169,17 +190,33 @@ function pause(my_id) {
 
 function seek(my_id, time) {
     $('#container'+my_id).tubeplayer('seek', time);
+    //pause(my_id);
 }
 
 
 function onytplayerStateChange(newState) {
    console.log("Player's new state: " + newState);
+   
+   /*
+   var stateA = $('#containerA').tubeplayer('data').state;
+   var hasBytesA = ( $('#containerA').tubeplayer('data').bytesLoaded > 0);
+   var timeIsDifferentA = ($('#containerA').tubeplayer('data').currentTime != $('#preA').val() );
+   if ( timeIsDifferentA && hasBytesA) {
+       console.log('A READY TO PLAY');
+   } else {
+       console.log('A NOT READY');
+       if (stateA == -1) {
+          seekChain(pauseChain(playChain($('#containerA'))), $('#preA').val());
+       }
+   }
+   
+   //var t = $('#containerA').tubeplayer('data').currentTime;
+   //$('#sec' + my_id).val(time);
+   */
 }
 
 function updateytplayerInfo(my_id) {
-    var time = p[my_id].getCurrentTime();
-	$('#sec' + my_id).val(time);
-
+	$('#sec' + my_id).val( p[my_id].getCurrentTime() );
 }
 
 
@@ -192,15 +229,19 @@ function populateFromURL() {
 	    $('#inputB').val($.url.param("videoB"));
 	    $('#setB').click();
 	}
-	$('#preA').val($.url.param("seekA"));
-	$('#preB').val($.url.param("seekB"));
+	if($.url.param("seekA")) {
+	    $('#preA').val($.url.param("seekA"));
+	}
+	if ($.url.param("seekB")) {
+	    $('#preB').val($.url.param("seekB"));
+	}
 	
 	return false;
 }
 
+
 function updateDelay(my_id) {
     $('#delay' + my_id).val( Math.round( ( $('#sec' + my_id).val() - $('#pre' + my_id).val() ) * 1000 ) );
-
 }
 
 function generateURL() {
